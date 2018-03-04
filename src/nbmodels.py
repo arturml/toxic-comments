@@ -62,7 +62,7 @@ class NbSVMClassifier(BaseEstimator, ClassifierMixin):
         self._r = sparse.csr_matrix(np.log(pr(X,1,y) / pr(X,0,y)))
         X_nb = X.multiply(self._r)
         print('fit...')
-        print(**self._params)
+        print(self._params)
         print(SVC(**self._params))
         self._clf = SVC(**self._params).fit(X_nb, y)
         print('done fit')
